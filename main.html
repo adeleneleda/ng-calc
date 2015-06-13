@@ -1,0 +1,34 @@
+<html ng-app="calcuApp">
+  <head>
+    <title>ng-calc: A practice activity to demostrate ng-services using a calculator</title>
+  </head>
+
+  <body ng-controller="calcuCtrl">
+
+    First Number:
+    <input type="text" ng-model="firstNum"/>
+
+    <br/>
+
+    Second Number:
+    <input type="text" ng-model="secondNum"/>
+
+    <br/>
+
+    Result:
+    <input type="text" ng-model="answer"/>
+
+    <br/>
+
+    <button ng-click="add()">Add</button>
+    <button ng-click="subtract()">Subtract</button>
+    <button ng-click="multiply()">Multiply</button>
+    <button ng-click="divide()">Divide</button>
+    <button ng-click="square()">Square</button>
+    <button ng-click="cube()">Cube</button>
+
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+
+</html>
