@@ -1,6 +1,10 @@
 var app = angular.module('calcuApp', []);
 
-app.controller('calcuCtrl', ['$scope', 'BasicOperationService', 'MathService', function($scope, BasicOperationService, MathService) {
+app.controller('calcuCtrl', ['$scope', 
+                             'BasicOperationService', 
+                             'MathService', 
+                             'BasicOperationsServiceV2', 
+  function($scope, BasicOperationService, MathService, BasicOperationsServiceV2) {
   self = this;
 
  
@@ -26,6 +30,16 @@ app.controller('calcuCtrl', ['$scope', 'BasicOperationService', 'MathService', f
 
   $scope.cube = function() {
     $scope.answer = MathService.cube($scope.firstNum);
+  };
+
+  // To demonstrate factories:
+
+  $scope.addv2 = function() {
+    $scope.answer = BasicOperationsServiceV2.add($scope.firstNum, $scope.  secondNum);
+  };
+
+  $scope.subtractv2 = function() {
+    $scope.answer = BasicOperationsServiceV2.subtract($scope.firstNum, $scope. secondNum);
   };
 
 }]);
@@ -61,5 +75,16 @@ app.service('MathService', ['BasicOperationService', function(BasicOperationServ
 
   this.cube = function(a) {
     return BasicOperationService.multiply(this.square(a), a);
+  }
+}]);
+
+
+app.service('BasicOperationsServiceV2', [function() {
+  this.add = function(a, b) {
+    return (parseInt(a) + parseInt(b));
+  };
+
+  this.subtract = function(a, b) {
+    return (parseInt(a) - parseInt(b));
   }
 }]);
